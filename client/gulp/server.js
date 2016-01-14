@@ -2,6 +2,7 @@
 
 var path = require('path');
 var gulp = require('gulp');
+var shell = require('gulp-shell')
 var conf = require('./conf');
 
 var browserSync = require('browser-sync');
@@ -49,11 +50,11 @@ browserSync.use(browserSyncSpa({
   selector: '[ng-app]'// Only needed for angular apps
 }));
 
-gulp.task('rails', function() {
-    exec("rails server");
-  });
+gulp.task('rails', shell.task([
+  'thin start -c ..'
+]));
 
- gulp.task('serve:full-stack', ['rails', 'serve']);
+gulp.task('serve:full-stack', ['rails', 'serve']);
 
 gulp.task('serve', ['watch'], function () {
   browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src]);
