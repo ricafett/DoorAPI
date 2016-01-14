@@ -5,6 +5,9 @@
     <title>doorapi</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+
+    <base href="/">
+
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
@@ -43,6 +46,8 @@
     <script src="../bower_components/malarkey/dist/malarkey.min.js"></script>
     <script src="../bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
     <script src="../bower_components/moment/moment.js"></script>
+    <script src="../bower_components/angular-cookie/angular-cookie.js"></script>
+    <script src="../bower_components/ng-token-auth/dist/ng-token-auth.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -50,8 +55,8 @@
     <!-- inject:js -->
     <script src="app/index.module.js"></script>
     <script src="app/components/webDevTec/webDevTec.service.js"></script>
-    <script src="app/components/navbar/navbar.directive.js"></script>
     <script src="app/components/malarkey/malarkey.directive.js"></script>
+    <script src="app/components/navbar/navbar.directive.js"></script>
     <script src="app/components/githubContributor/githubContributor.service.js"></script>
     <script src="app/main/main.controller.js"></script>
     <script src="app/controllers/groups.js"></script>
@@ -60,6 +65,7 @@
     <script src="app/index.route.js"></script>
     <script src="app/index.constants.js"></script>
     <script src="app/index.config.js"></script>
+    <script src="app/controllers/user_sessions.js"></script>
     <!-- endinject -->
 
     <!-- inject:partials -->
