@@ -1,0 +1,9 @@
+
+<div ng-include="'app/components/navbar/navbar.html'"></div>
+<div class="container">
+  <div role="alert" ng-show="authorized" class="alert alert-danger">Must be logged in</div>
+  <h1>Groups</h1>
+  <ul ng-repeat="group in groups">
+    <li>{{ group.name }}</li>
+  </ul>
+</div>
