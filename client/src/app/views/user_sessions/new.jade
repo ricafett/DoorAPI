@@ -1,0 +1,26 @@
+div(ng-include="'app/components/navbar/navbar.html'")
+
+div.container
+  div.alert.alert-danger(role="alert" ng-show="error") {{ error }}
+
+  h1 Login
+
+  form(ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}")
+    div.form-group
+      label(for="email") Email
+      input.form-control(type="email"
+        name="email"
+        id="email"
+        ng-model="loginForm.email"
+        required="required"
+        class="form-control")
+
+    div.form-group
+      label(for="password") Password
+      input.form-control(type="password"
+        name="password"
+        id="password"
+        ng-model="loginForm.password"
+        required="required")
+
+    button.btn.btn-primary.btn-lg(type="submit") Sign in
