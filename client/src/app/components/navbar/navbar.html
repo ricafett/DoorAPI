@@ -9,9 +9,9 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
       <ul class="nav navbar-nav">
         <li ng-class="{ active: isActive('/') }"><a ng-href="/">Home</a></li>
-        <li ng-class="{ active: isActive('/groups') }"><a ng-href="/groups">Groups</a></li>
+        <li ng-class="{ active: isActive('/groups') }" ng-show="user.id"><a ng-href="/groups">Groups</a></li>
         <li ng-class="{ active: isActive('/sign_in') }" ng-show="!user.id"><a ng-href="/sign_in">Sign in</a></li>
-        <li ng-show="user.id"><a ng-click='signOut()'>Sign out</a></li>
+        <li ng-show="user.id"><a ng-href="/" ng-click='signOut()'>Sign out</a></li>
       </ul>
 
     </div>
