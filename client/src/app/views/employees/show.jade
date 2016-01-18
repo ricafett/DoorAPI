@@ -1,0 +1,34 @@
+div(ng-include="'app/components/navbar/navbar.html'")
+div.container
+  div.row
+    div.col-xs-12
+      h1 {{ employee.name }}
+  
+  div.row
+    div.col-xs-12.col-sm-6
+      div.hr-title
+        h4 Employee Details
+        hr
+      div.table-responsive
+        table.table.table-striped
+          tr
+            th Email
+            td {{ employee.email }}
+          tr
+            th Role
+            td {{ employee.role }}
+          tr
+            th Status
+            td {{ employee.status }}
+      div
+        a.btn.btn-primary(ui-sref="editEmployee({id:employee.id})") Edit
+        a.btn.btn-danger(mwl-confirm
+          title="Delete?"
+          message="Are you sure you want to delete this employee?"
+          on-confirm="deleteEmployee(employee)"
+          confirm-button-type="danger") Delete
+
+    div.col-xs-12.col-sm-6
+      div.hr-title
+        h4 Fingerprints
+        hr

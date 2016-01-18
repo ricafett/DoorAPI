@@ -26,5 +26,4 @@ DeviseTokenAuth.setup do |config|
   # password is updated.
   # config.check_current_password_before_update = :attributes
 
-  config.navigational_formats = [:json]
 end

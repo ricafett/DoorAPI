@@ -1,0 +1,5 @@
+div(ng-include="'app/components/navbar/navbar.html'")
+div.container
+  h1 New Employee
+
+  form.form(ng-submit="addEmployee(employee)" ng-include="'app/views/employees/_form.html'")

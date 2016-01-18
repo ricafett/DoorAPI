@@ -9,5 +9,7 @@ angular.module 'doorapi', [
   'ui.router',
   'ui.bootstrap',
   'toastr',
-  'ng-token-auth'
+  'ng-token-auth',
+  'mwl.confirm'
+
 ]
