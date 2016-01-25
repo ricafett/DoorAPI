@@ -1,3 +1,14 @@
 .table-hover tr {
   cursor: pointer;
 }
+
+.addEmployee {
+  margin-bottom: 20px;
+
+  h1, a {
+    display: inline-block;
+  }
+  a {
+    margin-top: 25px;
+  }
+}

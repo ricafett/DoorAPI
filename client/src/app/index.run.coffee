@@ -13,5 +13,6 @@ angular.module 'doorapi'
       $log.log(error)
 
       if error.reason == "unauthorized"
+        $location.path("/")
         $location.path('/sign_in').search({err: "unauthorized"})
     )
