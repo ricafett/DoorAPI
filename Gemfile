@@ -10,10 +10,16 @@ gem 'spring', :group => :development
 
 gem 'sqlite3'
 
+# Server
+gem 'thin'
+
+# Authentication
 gem 'devise_token_auth', git: 'https://github.com/jasonswett/devise_token_auth.git'
 gem 'omniauth'
 
-gem 'thin'
+# Permissions
+gem 'pundit'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
