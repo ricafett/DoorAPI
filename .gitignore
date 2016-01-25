@@ -17,5 +17,6 @@
 !/log/.keep
 /tmp
 **/.tmp
+client/dist/
 
 **/.DS_Store

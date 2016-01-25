@@ -1,8 +1,0 @@
-(function() {
-  angular.module('doorapi').controller("GroupsCtrl", function($scope, Group) {
-    return $scope.groups = Group.query();
-  });
-
-}).call(this);
-
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbnRyb2xsZXJzL2dyb3Vwcy5jb2ZmZWUiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFBQSxPQUFPLENBQUMsTUFBUixDQUFlLFNBQWYsQ0FDRSxDQUFDLFVBREgsQ0FDYyxZQURkLEVBQzRCLFNBQUMsTUFBRCxFQUFTLEtBQVQ7V0FDeEIsTUFBTSxDQUFDLE1BQVAsR0FBZ0IsS0FBSyxDQUFDLEtBQU4sQ0FBQTtFQURRLENBRDVCO0FBQUEiLCJmaWxlIjoiY29udHJvbGxlcnMvZ3JvdXBzLmpzIiwic291cmNlUm9vdCI6Ii9zb3VyY2UvIiwic291cmNlc0NvbnRlbnQiOlsiYW5ndWxhci5tb2R1bGUgJ2Rvb3JhcGknXG4gIC5jb250cm9sbGVyIFwiR3JvdXBzQ3RybFwiLCAoJHNjb3BlLCBHcm91cCkgLT5cbiAgICAkc2NvcGUuZ3JvdXBzID0gR3JvdXAucXVlcnkoKVxuIl19

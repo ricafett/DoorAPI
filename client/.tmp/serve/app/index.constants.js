@@ -1,6 +1,0 @@
-(function() {
-  angular.module('doorapi').constant('malarkey', malarkey).constant('moment', moment);
-
-}).call(this);
-
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4LmNvbnN0YW50cy5jb2ZmZWUiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFBQSxPQUFPLENBQUMsTUFBUixDQUFlLFNBQWYsQ0FDRSxDQUFDLFFBREgsQ0FDWSxVQURaLEVBQ3dCLFFBRHhCLENBRUUsQ0FBQyxRQUZILENBRVksUUFGWixFQUVzQixNQUZ0QjtBQUFBIiwiZmlsZSI6ImluZGV4LmNvbnN0YW50cy5qcyIsInNvdXJjZVJvb3QiOiIvc291cmNlLyIsInNvdXJjZXNDb250ZW50IjpbImFuZ3VsYXIubW9kdWxlKCdkb29yYXBpJylcbiAgLmNvbnN0YW50ICdtYWxhcmtleScsIG1hbGFya2V5XG4gIC5jb25zdGFudCAnbW9tZW50JywgbW9tZW50XG4iXX0=
