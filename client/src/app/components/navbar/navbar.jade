@@ -12,25 +12,25 @@ nav.navbar.navbar-default
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav
         li
-          a(ui-sref="employees" ng-show="user.id") Employees
+          a(ui-sref="employees" ng-show="currentUser") Employees
           
           li
             a(ui-sref="groups") Groups
         
       ul.nav.navbar-nav.navbar-right
-        li(ng-show="!user.id")
+        li(ng-show="!currentUser")
           a(ng-href="/sign_in") Sign In
           
-        li.dropdown(dropdown='' ng-show="user.id")
+        li.dropdown(dropdown='' ng-show="currentUser")
           a.dropdown-toggle(dropdown-toggle='' data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-            | {{ user.name }}
+            | {{ currentUser.name }}
             span.caret
           ul.dropdown-menu(role="menu" )
             li
               a(href='#') My Account
             li.divider(role='separator')
             li
-              a(ng-href="/" ng-click='signOut()') Sign Out
+              a(ng-href="/" ui-sref="sign_out") Sign Out
     // /.navbar-collapse
   // /.container-fluid
 

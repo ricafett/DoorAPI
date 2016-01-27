@@ -5,13 +5,13 @@ div.container
 
   h1 Login
 
-  form(ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}")
+  form(ng-submit="submitForm(credentials)" role="form" ng-init="credentials = {}")
     div.form-group
       label(for="email") Email
       input.form-control(type="email"
         name="email"
         id="email"
-        ng-model="loginForm.email"
+        ng-model="credentials.email"
         required="required"
         class="form-control")
 
@@ -20,7 +20,7 @@ div.container
       input.form-control(type="password"
         name="password"
         id="password"
-        ng-model="loginForm.password"
+        ng-model="credentials.password"
         required="required")
 
     button.btn.btn-primary.btn-lg(type="submit") Sign in

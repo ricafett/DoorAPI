@@ -13,12 +13,17 @@ gem 'sqlite3'
 # Server
 gem 'thin'
 
+# Forgery Protection
+#gem 'angular_rails_csrf'
+
 # Authentication
-gem 'devise_token_auth', git: 'https://github.com/jasonswett/devise_token_auth.git'
-gem 'omniauth'
+gem 'devise'
 
 # Permissions
 gem 'pundit'
+
+#
+gem 'responders'
 
 
 # To use ActiveModel has_secure_password

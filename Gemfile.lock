@@ -1,11 +1,3 @@
-GIT
-  remote: https://github.com/jasonswett/devise_token_auth.git
-  revision: a01f81e52b34e12bd459a328d03665817bbbaa08
-  specs:
-    devise_token_auth (0.1.32.beta9)
-      devise (~> 3.3)
-      rails (~> 4.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -49,7 +41,7 @@ GEM
     builder (3.2.2)
     concurrent-ruby (1.0.0)
     daemons (1.2.3)
-    devise (3.5.3)
+    devise (3.5.5)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -60,7 +52,6 @@ GEM
     eventmachine (1.0.9.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-    hashie (3.4.3)
     i18n (0.7.0)
     json (1.8.3)
     loofah (2.0.3)
@@ -72,9 +63,6 @@ GEM
     minitest (5.8.3)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
-    omniauth (1.3.1)
-      hashie (>= 1.2, < 4)
-      rack (>= 1.0, < 3)
     orm_adapter (0.5.0)
     pundit (1.0.1)
       activesupport (>= 3.0.0)
@@ -135,11 +123,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  devise_token_auth!
-  omniauth
+  devise
   pundit
   rails (= 4.2.5)
   rails-api
+  responders
   spring
   sqlite3
   thin

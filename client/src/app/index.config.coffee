@@ -9,3 +9,8 @@ angular.module 'doorapi'
     toastrConfig.positionClass = 'toast-top-right'
     toastrConfig.preventDuplicates = true
     toastrConfig.progressBar = true
+  .config (AuthProvider) ->
+    AuthProvider.loginPath('/api/users/sign_in.json')
+    AuthProvider.loginMethod('POST');
+    AuthProvider.logoutPath('/api/users/sign_out.json')
+    AuthProvider.logoutMethod('DELETE');
