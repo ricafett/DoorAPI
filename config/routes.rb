@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 
   scope '/api' do
-    devise_for :users, controllers: { sessions: "sessions" }
+    devise_for :users, controllers: { sessions: "sessions" }, defaults: { format: :json }
     resources :groups, except: [:new, :edit]
   end
   # The priority is based upon order of creation: first created -> highest priority.
