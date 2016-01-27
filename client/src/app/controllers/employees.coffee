@@ -2,13 +2,7 @@ angular.module "doorapi"
   .controller "EmployeesCtrl", ($scope, $state, $log, Employee) ->
     $scope.employees = Employee.query(
       ((result) ->
-        result.$promise.then( ->
-          $log.log('DOne')
-          $log.log($scope.employees.toString())
-        )
-        $log.log("Query Success")
-        $log.log($scope.employees)
-
+        # YAY
       ),
       ( (error) ->
         $log.log("Query Error")

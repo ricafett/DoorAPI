@@ -16,10 +16,10 @@ div.container
             td {{ employee.email }}
           tr
             th Role
-            td {{ employee.role }}
-          tr
-            th Status
-            td {{ employee.status }}
+            td {{ employee.admin | employeeRole }}
+          //tr
+            //th Status
+            //td {{ employee.status }}
       div.btn-toolbar
         a.btn.btn-primary(ui-sref="editEmployee({id:employee.id})") Edit
         a.btn.btn-danger(mwl-confirm

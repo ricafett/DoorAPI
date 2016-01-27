@@ -11,6 +11,6 @@ angular.module 'doorapi'
     toastrConfig.progressBar = true
   .config (AuthProvider) ->
     AuthProvider.loginPath('/api/users/sign_in.json')
-    AuthProvider.loginMethod('POST');
+    AuthProvider.loginMethod('POST')
     AuthProvider.logoutPath('/api/users/sign_out.json')
-    AuthProvider.logoutMethod('DELETE');
+    AuthProvider.logoutMethod('DELETE')

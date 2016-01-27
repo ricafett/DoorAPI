@@ -38,6 +38,16 @@ div.form-group
       placeholder="Password"
     )
 
+div.form-group
+  label.col-sm-2.control-label(for="admin") Admin
+  div.col-sm-10
+    input.form-control(
+      type="checkbox" 
+      ng-model="employee.admin"
+      id="admin" 
+    )
+
+
 input.btn.btn-primary(
   type="submit" 
   value="Save"
