@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160127115957) do
+ActiveRecord::Schema.define(version: 20160128123955) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "name",       null: false
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20160127115957) do
     t.datetime "updated_at",                             null: false
     t.string   "name"
     t.boolean  "admin",                  default: false
+    t.integer  "fingerprint1"
+    t.integer  "fingerprint2"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
