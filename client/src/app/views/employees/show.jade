@@ -32,6 +32,15 @@ div.container
       div.hr-title
         h4 Fingerprints
         hr
-      div
-        p {{ employee.fingerprint1 }}
-        p {{ employee.fingerprint2 }}
+      div(ng-show="!employee.fingerprint1 && !employee.fingerprint2")
+        p This employee has no fingerprints.
+        
+      div.blocky(ng-show="employee.fingerprint1")
+        img.img-responsive(src="/assets/images/fingerprint-png.png" width="150px")
+        p.text-center {{ employee.fingerprint1 }}
+      div.blocky(ng-show="employee.fingerprint2")
+        img.img-responsive(src="/assets/images/fingerprint-png.png" width="150px")
+        p.text-center {{ employee.fingerprint2 }}
+      
+      div(ng-show="!employee.fingerprint1 || !employee.fingerprint2")
+        a.btn.btn-primary() Add Fingerprint

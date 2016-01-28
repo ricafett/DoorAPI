@@ -1,14 +1,31 @@
+h1 {
+  margin-bottom: 20px;
+}
+
 .table-hover tr {
   cursor: pointer;
 }
 
 .addEmployee {
-  margin-bottom: 20px;
-
   h1, a {
     display: inline-block;
   }
   a {
-    margin-top: 25px;
+    margin-top: 20px;
   }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.blocky {
+  display: inline-block;
+}
+
+.form-group label {
+  text-align: right;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin: 0px;
 }
