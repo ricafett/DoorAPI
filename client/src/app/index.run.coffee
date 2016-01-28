@@ -20,7 +20,7 @@ angular.module 'doorapi'
 
       # Redirect to sign in on 401
       if error.statusText == "Unauthorized"
-        $state.go('sign_in', {error: error.data.error});
+        $state.go('sign_in', {error: error.data.error})
     )
     $rootScope.$on('devise:unauthorized', (event, deferred) ->
       # don't capture 401 here, using state resolve instead
