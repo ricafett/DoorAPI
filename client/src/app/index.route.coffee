@@ -7,6 +7,8 @@ angular.module 'doorapi'
         templateUrl: 'app/views/main.html'
         controller: 'MainController'
         controllerAs: 'main'
+        params:
+          error: {}
 
       .state "groups",
         url: "/groups",
@@ -20,6 +22,8 @@ angular.module 'doorapi'
         url: "/sign_in"
         templateUrl: "app/views/user_sessions/new.html"
         controller: "UserSessionsCtrl"
+        params:
+          error: {}
 
       .state "sign_out",
         url: "/sign_out"
