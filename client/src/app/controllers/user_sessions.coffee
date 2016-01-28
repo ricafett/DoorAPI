@@ -9,7 +9,7 @@ angular.module 'doorapi'
           $location.path("/")
         ),
         ((error) ->
-          $scope.error = error[0]
+          $scope.error = error.data.error
         )
       )
 

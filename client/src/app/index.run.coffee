@@ -16,16 +16,17 @@ angular.module 'doorapi'
       event.preventDefault()
 
       # Log all stateChangeErrors
+      $log.log("stateChangeError")
       $log.log(error)
 
       # Redirect to sign in on 401
       if error.statusText == "Unauthorized"
         $state.go('sign_in', {error: error.data.error})
     )
-    $rootScope.$on('devise:unauthorized', (event, deferred) ->
-      # don't capture 401 here, using state resolve instead
+    # don't capture 401 here, using state resolve instead
+    ###$rootScope.$on('devise:unauthorized', (event, deferred) ->
       deferred.resolve()
-    )
+    )###
 
   .run (Auth, $log) ->
     # Check for previous session

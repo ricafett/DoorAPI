@@ -16,9 +16,9 @@ angular.module 'doorapi'
     AuthProvider.logoutPath('/api/users/sign_out.json')
     AuthProvider.logoutMethod('DELETE')
 
-  .config (AuthInterceptProvider) ->
-    # Have Devise intercept all 401 errors
-    AuthInterceptProvider.interceptAuth(true)
+  # Have Devise intercept all 401 errors
+  #.config (AuthInterceptProvider) ->
+    #AuthInterceptProvider.interceptAuth(true)
 
   .config ($httpProvider) ->
     # Push the 403 interceptor
