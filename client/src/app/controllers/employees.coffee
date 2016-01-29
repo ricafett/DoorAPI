@@ -17,43 +17,77 @@ angular.module "doorapi"
       Employee.save(
         $scope.employee,
         ( (result) ->
-          $log.log("Saved")
           $location.path('/employees/' + result.id)
         ),
         ( (error) ->
-          $log.log("Error")
-          $log.log(error)
+          $scope.formErrors = error.data
         )
       )
 
-  .controller "ShowEmployeeCtrl", ($scope, $stateParams, Employee, $log) ->
+  .controller "ShowEmployeeCtrl", ($scope, $state, $stateParams, Employee, $modal, $log) ->
     $scope.employee = Employee.get({ id: $stateParams.id })
-    $scope.employee.admin = true
-    $scope.employee.role = if $scope.employee.admin then "Administrator" else "User"
+    $scope.employee.$promise.then(
+      ((data) ->
+          #YAY
+      ),((error) ->
+        $scope.error = error.data.error
+      )
+    )
+
     $scope.deleteEmployee = (employee) ->
       Employee.remove(
         employee,
         ((result) ->
-          $log.log("Deleted")
-          $state.go('users')
+          $state.go('employees')
         ),
         ( (error) ->
-          $log.log("Error")
-          $log.log(error)
+          $scope.error = error.data.error
         )
       )
 
+    $scope.openFingerprint =  () ->
+      modalInstance = $modal.open(
+        animation: true,
+        templateUrl: 'app/views/employees/fingerprints.html',
+        controller: 'FingerprintCtrl',
+        size: "lg",
+        resolve:
+          employee: () ->
+            $scope.employee
+      )
+
+  .controller "FingerprintCtrl", ($scope, $modalInstance, employee, $log) ->
+    $scope.employee = employee
+
+    if !employee.fingerprint1
+      $scope.fingernumber = 1
+    else if employee.fingerprint1 && !employee.fingerprint2
+      $scope.fingernumber = 1
+
+
+    $scope.ok =  () ->
+      $modalInstance.close()
+    $scope.cancel =  () ->
+      $modalInstance.dismiss('cancel')
+
+
   .controller "EditEmployeeCtrl", ($scope, $stateParams, $location, Employee, $log) ->
     $scope.employee = Employee.get({ id: $stateParams.id })
+    $scope.employee.$promise.then(
+      ((data) ->
+          #YAY
+      ),((error) ->
+        $scope.error = error.data.error
+      )
+    )
+
     $scope.updateEmployee = ->
       Employee.update(
         $scope.employee,
         ((result) ->
-          $log.log("Saved")
           $location.path('/employees/' + result.id)
         ),
         ( (error) ->
-          $log.log("Error")
-          $log.log(error)
+          $scope.formErrors = error.data
         )
       )

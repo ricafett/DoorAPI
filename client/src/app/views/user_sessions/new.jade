@@ -6,21 +6,25 @@ div.container
   h1 Login
 
   form(ng-submit="submitForm(credentials)" role="form" ng-init="credentials = {}")
-    div.form-group
-      label(for="email") Email
-      input.form-control(type="email"
-        name="email"
-        id="email"
-        ng-model="credentials.email"
-        required="required"
-        class="form-control")
+    div.row.form-group
+      label.col-sm-2(for="email") Email
+      div.col-sm-10
+        input.form-control(type="email"
+          name="email"
+          id="email"
+          ng-model="credentials.email"
+          required="required")
+          
+    div.row.form-group
+      label.col-sm-2(for="password") Password
+      div.col-sm-10
+        input.form-control(type="password"
+          name="password"
+          id="password"
+          ng-model="credentials.password"
+          required="required")
 
-    div.form-group
-      label(for="password") Password
-      input.form-control(type="password"
-        name="password"
-        id="password"
-        ng-model="credentials.password"
-        required="required")
 
-    button.btn.btn-primary.btn-lg(type="submit") Sign in
+    div.row.form-group
+      div.col-sm-10.col-sm-offset-2
+        button.btn.btn-primary(type="submit") Sign in

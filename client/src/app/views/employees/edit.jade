@@ -1,5 +1,7 @@
 div(ng-include="'app/components/navbar/navbar.html'")
 div.container
+  div.alert.alert-danger(role="alert" ng-show="error") {{ error }}
+  
   h1 Edit Employee
 
   form.form(ng-submit="updateEmployee()" ng-include="'app/views/employees/_form.html'")

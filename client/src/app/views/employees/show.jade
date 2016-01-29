@@ -2,6 +2,7 @@ div(ng-include="'app/components/navbar/navbar.html'")
 div.container
   div.row
     div.col-xs-12
+      div.alert.alert-danger(role="alert" ng-show="error") {{ error }}
       h1 {{ employee.name }}
   
   div.row
@@ -43,4 +44,4 @@ div.container
         p.text-center {{ employee.fingerprint2 }}
       
       div(ng-show="!employee.fingerprint1 || !employee.fingerprint2")
-        a.btn.btn-primary() Add Fingerprint
+        a.btn.btn-primary(ng-click="openFingerprint()") Add Fingerprint

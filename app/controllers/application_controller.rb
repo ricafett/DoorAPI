@@ -10,11 +10,17 @@ class ApplicationController < ActionController::API
   # Only talk JSON
   respond_to :json
 
-  # Permissions Error Handling
+  ##### Error Handling
+  # Permissions
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  # 404 bad id
+  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
 
   private
   def user_not_authorized
     render json: ["You are not allowed to perform this action!"], :status => :forbidden
+  end
+  def record_not_found(error)
+    render :json => {:error => error.message}, :status => :not_found
   end
 end

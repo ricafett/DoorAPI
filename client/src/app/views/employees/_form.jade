@@ -1,4 +1,5 @@
-div.row.form-group
+
+div.row.form-group(ng-class="(formErrors.name)? 'has-error' : ''")
   label.col-sm-2.control-label(for="name") Name
   div.col-sm-10
     input.form-control(
@@ -6,19 +7,23 @@ div.row.form-group
       ng-model="employee.name"
       id="name" 
       placeholder="First and Last Name"
+      required="required"
     )
+    p.text-danger(ng-show="formErrors.name") {{ formErrors.name[0] }}
 
-div.row.form-group
+div.row.form-group(ng-class="(formErrors.email)? 'has-error' : ''")
   label.col-sm-2.control-label(for="email") Email
   div.col-sm-10
     input.form-control(
-      type="text" 
+      type="email" 
       ng-model="employee.email"
       id="email" 
       placeholder="someone@codeplace.com"
+      required="required"
     )
+    p.text-danger(ng-show="formErrors.email") {{ formErrors.eamil[0] }}
     
-div.row.form-group
+div.row.form-group(ng-class="(formErrors.password)? 'has-error' : ''")
   label.col-sm-2.control-label(for="password") Password
   div.col-sm-10
     input.form-control(
@@ -26,19 +31,11 @@ div.row.form-group
       ng-model="employee.password"
       id="password" 
       placeholder="Password"
+      ng-required='!employee.id'
     )
-    
-div.row.form-group
-  label.col-sm-2.control-label(for="confirm-password") Confirm Password
-  div.col-sm-10
-    input.form-control(
-      type="password" 
-      ng-model="employee.password_confirmation"
-      id="confirm-password" 
-      placeholder="Password"
-    )
+    p.text-danger(ng-show="formErrors.password") {{ formErrors.password[0] }}
 
-div.row.form-group
+div.row.form-group(ng-class="(formErrors.admin)? 'has-error' : ''")
   label.col-sm-2.control-label(for="admin") Admin
   div.col-sm-10
     input.form-control(
@@ -46,14 +43,16 @@ div.row.form-group
       ng-model="employee.admin"
       id="admin" 
     )
+    p.text-danger(ng-show="formErrors.admin") {{ formErrors.admin[0] }}
 
 
-div.col-sm-10.col-sm-offset-2
-  input.btn.btn-primary(
-    type="submit" 
-    value="Save"
-  )
-    
+div.row.form-group
+  div.col-sm-10.col-sm-offset-2
+    input.btn.btn-primary(
+      type="submit" 
+      value="Save"
+    )
+      
     
     
     
