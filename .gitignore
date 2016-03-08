@@ -12,11 +12,26 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
+api/log/
 /log
 .log
 !/log/.keep
+
 /tmp
 **/.tmp
-client/dist/
 
+client/dist/
+client/bower_components/
+client/node_modules/
+
+api/config/application.yml
+api/config/secrets.yml
+api/config/initializers/devise.rb
+api/config/initializers/secret_token.rb
+api/tmp/
+
+node/secret.js
+node/node_modules/
+
+.ftpconfig
 **/.DS_Store

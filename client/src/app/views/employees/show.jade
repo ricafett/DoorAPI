@@ -36,12 +36,26 @@ div.container
       div(ng-show="!employee.fingerprint1 && !employee.fingerprint2")
         p This employee has no fingerprints.
         
-      div.blocky(ng-show="employee.fingerprint1")
-        img.img-responsive(src="/assets/images/fingerprint-png.png" width="150px")
-        p.text-center {{ employee.fingerprint1 }}
-      div.blocky(ng-show="employee.fingerprint2")
-        img.img-responsive(src="/assets/images/fingerprint-png.png" width="150px")
-        p.text-center {{ employee.fingerprint2 }}
+      div.finger.blocky(ng-show="employee.fingerprint1")
+        div.overlay
+          p.text-center ID: {{ employee.fingerprint1 }}
+          p
+            span.glyphicon.glyphicon-remove(aria-hidden="true" 
+              mwl-confirm
+              title="Delete?"
+              message="Are you sure you want to delete this fingerprint?"
+              on-confirm="deletePrint(employee, 1)"
+              confirm-button-type="danger")
+      div.finger.blocky(ng-show="employee.fingerprint2")
+        div.overlay
+          p.text-center ID: {{ employee.fingerprint2 }}
+          p
+            span.glyphicon.glyphicon-remove(aria-hidden="true" 
+              mwl-confirm
+              title="Delete?"
+              message="Are you sure you want to delete this fingerprint?"
+              on-confirm="deletePrint(employee, 2)"
+              confirm-button-type="danger")
       
-      div(ng-show="!employee.fingerprint1 || !employee.fingerprint2")
+      div(ng-show="(!employee.fingerprint1 || !employee.fingerprint2) && currentUser.admin")
         a.btn.btn-primary(ng-click="openFingerprint()") Add Fingerprint

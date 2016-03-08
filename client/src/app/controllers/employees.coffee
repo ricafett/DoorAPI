@@ -24,15 +24,17 @@ angular.module "doorapi"
         )
       )
 
-  .controller "ShowEmployeeCtrl", ($scope, $state, $stateParams, Employee, $modal, $log) ->
-    $scope.employee = Employee.get({ id: $stateParams.id })
-    $scope.employee.$promise.then(
-      ((data) ->
-          #YAY
-      ),((error) ->
-        $scope.error = error.data.error
+  .controller "ShowEmployeeCtrl", ($scope, $state, $stateParams, Employee, socket, $modal, $log) ->
+    getEmployee = () ->
+      employee = Employee.get({ id: $stateParams.id })
+      employee.$promise.then(
+        ((data) ->
+          $scope.employee = data
+        ),((error) ->
+          $scope.error = error.data.error
+        )
       )
-    )
+    getEmployee()
 
     $scope.deleteEmployee = (employee) ->
       Employee.remove(
@@ -45,25 +47,47 @@ angular.module "doorapi"
         )
       )
 
+    $scope.deletePrint = (employee, printN) ->
+      socket.emit('deleteFingerprint', {user: employee, printN: printN})
+      socket.on('deleteFingerprintUpdate', (data) ->
+        if data.status == 'error'
+          alert(data.error)
+        else
+          getEmployee()
+      )
+
+
     $scope.openFingerprint =  () ->
       modalInstance = $modal.open(
         animation: true,
         templateUrl: 'app/views/employees/fingerprints.html',
         controller: 'FingerprintCtrl',
         size: "lg",
+        backdrop: 'static',
         resolve:
           employee: () ->
             $scope.employee
       )
+      modalInstance.result.then(() ->
+        getEmployee()
+      )
 
-  .controller "FingerprintCtrl", ($scope, $modalInstance, employee, $log) ->
-    $scope.employee = employee
+  .controller "FingerprintCtrl", ($scope, $modalInstance, employee, socket, $log) ->
+    $scope.btnFinish = false
+    $scope.progress = 0
+    $scope.type = 'primary'
 
-    if !employee.fingerprint1
-      $scope.fingernumber = 1
-    else if employee.fingerprint1 && !employee.fingerprint2
-      $scope.fingernumber = 1
-
+    socket.emit('addFingerprint', {user: employee})
+    socket.on('addFingerprintUpdate', (data) ->
+      $scope.status = data.status
+      $scope.progress = data.progress
+      if data.progress >= 100
+        $scope.btnFinish = true
+        $scope.type = 'success'
+      if data.error
+        $scope.error = data.error
+        $scope.type = 'danger'
+    )
 
     $scope.ok =  () ->
       $modalInstance.close()

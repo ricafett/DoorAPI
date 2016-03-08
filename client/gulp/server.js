@@ -36,13 +36,22 @@ function browserSyncInit(baseDir, browser) {
    *
    * For more details and option, https://github.com/chimurai/http-proxy-middleware/blob/v0.9.0/README.md
    */
-  server.middleware = proxyMiddleware('/api', {target: 'http://localhost:3000', changeOrigin: true});
+  server.middleware = [
+    proxyMiddleware('/api', {target: 'http://localhost:3000', changeOrigin: true})
+    // ,
+    // proxyMiddleware('/socket', {
+    //   target: 'http://localhost:8080',
+    //   changeOrigin: true,
+    //   ws: true
+    // })
+  ]
 
   browserSync.instance = browserSync.init({
     port: 9000,
     startPath: '/',
     server: server,
-    browser: browser
+    browser: browser,
+    open: false
   });
 }
 
@@ -51,10 +60,20 @@ browserSync.use(browserSyncSpa({
 }));
 
 gulp.task('rails', shell.task([
-  'thin start -c ..'
+  'thin start -c ../api'
 ]));
 
-gulp.task('serve:full-stack', ['rails', 'serve']);
+gulp.task('actionhero', shell.task(['actionhero start'], {
+  cwd: '../node-api'
+}));
+
+gulp.task('node', shell.task(['node app.js'], {
+  cwd: '../node'
+}));
+
+gulp.task('serve:fs', ['rails', 'node', 'serve']);
+
+gulp.task('serve:rails', ['rails', 'serve']);
 
 gulp.task('serve', ['watch'], function () {
   browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src]);

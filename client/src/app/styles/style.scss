@@ -1,3 +1,7 @@
+nav.navbar {
+  border-radius: 0px;
+}
+
 h1 {
   margin-bottom: 20px;
 }
@@ -28,4 +32,36 @@ h1 {
   padding-top: 12px;
   padding-bottom: 12px;
   margin: 0px;
+}
+
+.finger{
+  background-image: url('/assets/images/fingerprint-png.png');
+  background-size: 150px 112px;
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 112px;
+  margin-bottom: 20px;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, .6);
+  border-radius: 4px;
+  height: 112px;
+  padding-top: 20px;
+  font-size: 18pt;
+
+  opacity:0;
+  color: white;
+
+  text-align: center;
+  -webkit-transition: opacity .25s ease;
+  -moz-transition: opacity .25s ease;
+}
+.finger:hover .overlay {
+  opacity:1;
+}
+
+.glyphicon-remove:hover {
+  cursor: pointer;
+  color: #E74C3C;
 }

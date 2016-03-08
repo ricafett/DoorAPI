@@ -1,7 +1,9 @@
 div.modal-header
   h3.modal-title Add a fingerprint
 div.modal-body
-  p {{ fingernumber }}
+  progressbar(max="100" value="progress" type="{{ type }}")
+  h4.text-center(ng-show="!error") {{ status }}
+  h4.text-center.text-danger(ng-show="error") {{ error }}
 div.modal-footer
-  button.btn.btn-primary(type="button" ng-click="ok()") OK
-  button.btn.btn-warning(type="button" ng-click="cancel()") Cancel
+  button.btn.btn-primary(type="button" ng-show="btnFinish" ng-click="ok()") Finish
+  button.btn.btn-warning(type="button" ng-show="!btnFinish" ng-click="cancel()") Cancel
