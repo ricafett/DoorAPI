@@ -26,6 +26,7 @@ var addingPrint = false;
 
 //// RELAY
 relay = new Gpio(20, 'out');
+doorSensor = new Gpio(13, 'in', 'falling')
 
 var openDoor = function() {
   relay.write(1, function (err) {
@@ -33,14 +34,22 @@ var openDoor = function() {
       throw err;
     }
   });
-  setTimeout(function () {
+}
+
+doorSensor.watch(function (err, value) {
+  if (err) {
+    throw err;
+  }
+  console.log(value)
+  if (value === 1) {
     relay.write(0, function (err) {
       if (err) {
         throw err;
       }
     });
-  }, 5000);
-}
+  }
+});
+
 
 //// WEBSOCKETS
 io.on('connection', function (socket) {
